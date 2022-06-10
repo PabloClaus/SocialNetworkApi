@@ -20,7 +20,7 @@ Social network for developers (NET Dev position Test Task)
 - Basic Test Cases with xUnit.
 
 **Technologies**
-- .net 6
+- .NET 6
 - Entity Framework Core 6
 - SQL Server Local DB 15.0.4
 - Microsoft.AspNetCore.Authentication.JwtBearer 6.0.5
@@ -31,7 +31,7 @@ Social network for developers (NET Dev position Test Task)
 
 - Visual Studio 2022 IDE Community
 - SQL Server (LocalDB) with local user permissions
-- .net 6
+- .NET 6
 - Web Browser
 
 ## **How to use it**
