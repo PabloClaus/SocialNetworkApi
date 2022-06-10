@@ -1,0 +1,14 @@
+C:\Users\Pablo\source\repos\SocialNetworkApi\SocialNetworkApi.Core\bin\Release\net6.0\SocialNetworkApi.Core.deps.json
+C:\Users\Pablo\source\repos\SocialNetworkApi\SocialNetworkApi.Core\bin\Release\net6.0\SocialNetworkApi.Core.runtimeconfig.json
+C:\Users\Pablo\source\repos\SocialNetworkApi\SocialNetworkApi.Core\bin\Release\net6.0\SocialNetworkApi.Core.dll
+C:\Users\Pablo\source\repos\SocialNetworkApi\SocialNetworkApi.Core\bin\Release\net6.0\SocialNetworkApi.Core.pdb
+C:\Users\Pablo\source\repos\SocialNetworkApi\SocialNetworkApi.Core\obj\Release\net6.0\SocialNetworkApi.Core.csproj.AssemblyReference.cache
+C:\Users\Pablo\source\repos\SocialNetworkApi\SocialNetworkApi.Core\obj\Release\net6.0\SocialNetworkApi.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pablo\source\repos\SocialNetworkApi\SocialNetworkApi.Core\obj\Release\net6.0\SocialNetworkApi.Core.AssemblyInfoInputs.cache
+C:\Users\Pablo\source\repos\SocialNetworkApi\SocialNetworkApi.Core\obj\Release\net6.0\SocialNetworkApi.Core.AssemblyInfo.cs
+C:\Users\Pablo\source\repos\SocialNetworkApi\SocialNetworkApi.Core\obj\Release\net6.0\SocialNetworkApi.Core.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\source\repos\SocialNetworkApi\SocialNetworkApi.Core\obj\Release\net6.0\SocialNetworkApi.Core.dll
+C:\Users\Pablo\source\repos\SocialNetworkApi\SocialNetworkApi.Core\obj\Release\net6.0\refint\SocialNetworkApi.Core.dll
+C:\Users\Pablo\source\repos\SocialNetworkApi\SocialNetworkApi.Core\obj\Release\net6.0\SocialNetworkApi.Core.pdb
+C:\Users\Pablo\source\repos\SocialNetworkApi\SocialNetworkApi.Core\obj\Release\net6.0\SocialNetworkApi.Core.genruntimeconfig.cache
+C:\Users\Pablo\source\repos\SocialNetworkApi\SocialNetworkApi.Core\obj\Release\net6.0\ref\SocialNetworkApi.Core.dll

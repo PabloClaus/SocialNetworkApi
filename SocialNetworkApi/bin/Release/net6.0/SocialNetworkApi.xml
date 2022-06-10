@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SocialNetworkApi</name>
+    </assembly>
+    <members>
+        <member name="M:SocialNetworkApi.Controllers.ApplicationAdminController.Delete(System.Int32)">
+             <summary>
+             Allows Admin user to delete an user's profile
+              </summary>
+             <param name="id"></param>
+             <returns>An "Delete Ok" message</returns>
+             <remarks>
+             Sample request:
+            
+                 POST /Delete
+                 {
+                    "id": 1
+                 }
+            
+             
+             </remarks>
+             <response code="200">Deletes Ok</response>
+             <response code="500">If there was a problem during the process</response>
+             
+        </member>
+        <member name="M:SocialNetworkApi.Controllers.ApplicationUserController.Authenticate(SocialNetworkApi.DTO.POST.Authentication.AuthenticationRequest)">
+             <summary>
+             Allows a user to authenticate
+             </summary>
+             <param name="request"></param>
+             <returns>An object with the Authentication token to be used in the functions that require authentication</returns>
+             <remarks>
+             Sample request:
+            
+                 POST /Authenticate
+                 {
+                    "email": "something@something.com",
+                    "password": "aPassword"
+                 }
+            
+             </remarks>
+             <response code="200">Authentication Ok</response>
+             <response code="500">If there was a problem during the process</response>
+             
+             
+        </member>
+        <member name="M:SocialNetworkApi.Controllers.ApplicationUserController.Register(SocialNetworkApi.DTO.POST.Registration.ApplicationUser)">
+             <summary>
+             Allows a user to authenticate
+             </summary>
+             <param name="user"></param>
+             <returns>An "Registration successful" message</returns>
+             <remarks>
+             Sample request:
+            
+                 POST /Register
+                 {
+                    "firstName": "firstName",
+                    "lastName": "lastName",
+                    "email": "something@something.com",
+                    "password": "aPassword",
+                    "birthday": "2019-01-06",
+                    "gender": "[MASC|FEM|OTHER]" 
+                 }
+            
+             Note: birthday and gender ara optinonal. In case you do not want to complete any of them, delete it/them from the request.
+            
+             </remarks>
+             <response code="200">Registration successful</response>
+             <response code="500">If there was a problem during the process</response>
+             
+        </member>
+        <member name="M:SocialNetworkApi.Controllers.ApplicationUserController.GetAll">
+            <summary>
+            Get the list of the current users of the application
+            </summary>
+            <param name="GetAll"></param>
+            <returns>A list of users of the application</returns>
+            <response code="200">Ok</response>
+            <response code="500">If there was a problem during the process</response>
+            
+        </member>
+        <member name="M:SocialNetworkApi.Controllers.ApplicationUserController.Get">
+            <summary>
+            Get the profile of the current authenticated user
+            </summary>
+            <param name="Get"></param>
+            <returns>The User's profile</returns>
+            <response code="200">Ok</response>
+            <response code="500">If there was a problem during the process</response>
+            
+        </member>
+        <member name="M:SocialNetworkApi.Controllers.ApplicationUserController.Update(SocialNetworkApi.DTO.POST.UpdateApplicationUser.ApplicationUser)">
+             <summary>
+             Allows an authenticated user to modify his or her profile
+              </summary>
+             <param name="user"></param>
+             <returns>An "Update Ok" message</returns>
+             <remarks>
+             Sample request:
+            
+                 POST /Update
+                 {
+                    "firstName": "firstName",
+                    "lastName": "lastName",
+                    "password": "aPassword",
+                    "birthday": "2019-01-06",
+                    "gender": "[MASC|FEM|OTHER]" 
+                 }
+            
+             Note: All the filed are optinonal. In case you do not want to complete any of them, delete it/them from the request.
+             
+             </remarks>
+             <response code="200">Update successful</response>
+             <response code="500">If there was a problem during the process</response>
+             
+        </member>
+    </members>
+</doc>
