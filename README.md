@@ -15,6 +15,7 @@ Social network for developers (NET Dev position Test Task)
 
 - Swagger UI support.
 - Input validation.
+- Filter results option.
 - API methods XML documentation.
 - Json Web Token Authentication.
 - Basic Test Cases with xUnit.
@@ -53,10 +54,12 @@ You should see something like this in SQL Server:
 
 ![image](https://user-images.githubusercontent.com/14250936/173121654-4b556230-4e7c-491b-b583-50f2753b78b5.png)
 
+Initial users are created in ther first execution: 9 users and 1 admin (mail: admin@mail.com, pass: admin)
+User's password follows the rule: FirstName's first character + LastName (For example: Pablo Claus's password is pclaus)
+
 4. Execute the project on IIS.
 
 You will see Swagger open
 
 ![image](https://user-images.githubusercontent.com/14250936/173120815-11c53ee6-362f-4cfe-a43f-1825ac80954b.png)
 
-5. The App automatically create an admin user (Email: admin@admin.com  Password: @admin)
