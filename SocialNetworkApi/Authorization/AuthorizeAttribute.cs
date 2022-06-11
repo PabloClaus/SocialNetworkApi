@@ -23,7 +23,7 @@ public class AuthorizeAttribute : Attribute, IAuthorizationFilter
             return;
 
         var userIDs = (UserIDs) context!.HttpContext!.Items["UserIDs"]!;
-        if (userIDs == null || (_roles.Any() && !_roles.Contains(userIDs.RolId)))
+        if (userIDs == null || (_roles.Any() && !_roles.Contains(userIDs.RoleId)))
             context.Result = new JsonResult(new {message = "Unauthorized"})
                 {StatusCode = StatusCodes.Status401Unauthorized};
     }

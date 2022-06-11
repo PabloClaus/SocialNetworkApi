@@ -136,18 +136,18 @@ public class ApplicationUserController : ControllerBase
     /// </summary>
     /// <returns>A list of users of the application</returns>
     /// <param name="gender">The gender name to search for (Optional)</param>
-    /// <param name="rolName">The rol name to search for (Optional)</param>
+    /// <param name="roleName">The RoleName to search for (Optional)</param>
     /// <response code="200">Ok</response>
     /// <response code="500">If there was a problem during the process</response>
     [HttpGet]
     [ProducesResponseType(typeof(ProducesErrorResponseTypeAttribute), 400)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public ActionResult<List<DTO.GET.GetUsers.ApplicationUser>> GetAll(string? gender = null, string? rolName = null)
+    public ActionResult<List<DTO.GET.GetUsers.ApplicationUser>> GetAll(string? gender = null, string? roleName = null)
     {
         try
         {
-            return _applicationUserService.GetAll(gender, rolName).ToList();
+            return _applicationUserService.GetAll(gender, roleName).ToList();
         }
         catch (Exception ex)
         {

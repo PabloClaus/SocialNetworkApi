@@ -14,7 +14,7 @@ public class DataContext : DbContext
     }
 
     public DbSet<ApplicationUser>? ApplicationUser { get; set; }
-    public DbSet<ApplicationRol>? ApplicationRol { get; set; }
+    public DbSet<ApplicationRole>? ApplicationRole { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
@@ -25,9 +25,9 @@ public class DataContext : DbContext
     {
         #region RolSeed
 
-        modelBuilder.Entity<ApplicationRol>().HasData(
-            new {Name = "Admin", RolId = 1},
-            new {Name = "User", RolId = 2}
+        modelBuilder.Entity<ApplicationRole>().HasData(
+            new {Name = "Admin", RoleId = 1},
+            new {Name = "User", RoleId = 2}
         );
 
         modelBuilder.Entity<ApplicationUser>().HasData(
@@ -40,7 +40,7 @@ public class DataContext : DbContext
                 Birthday = null,
                 Gender = null,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("admin"),
-                RolId = 1
+                RoleId = 1
             },
             new ApplicationUser
             {
@@ -51,7 +51,7 @@ public class DataContext : DbContext
                 Birthday = null,
                 Gender = "MASC",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("blowe"),
-                RolId = 2
+                RoleId = 2
             },
             new ApplicationUser
             {
@@ -62,7 +62,7 @@ public class DataContext : DbContext
                 Birthday = null,
                 Gender = "MASC",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("cdisney"),
-                RolId = 2
+                RoleId = 2
             },
             new ApplicationUser
             {
@@ -73,7 +73,7 @@ public class DataContext : DbContext
                 Birthday = null,
                 Gender = "MASC",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("sowston"),
-                RolId = 2
+                RoleId = 2
             },
             new ApplicationUser
             {
@@ -84,7 +84,7 @@ public class DataContext : DbContext
                 Birthday = null,
                 Gender = "FEM",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("sowston"),
-                RolId = 2
+                RoleId = 2
             },
             new ApplicationUser
             {
@@ -95,7 +95,7 @@ public class DataContext : DbContext
                 Birthday = null,
                 Gender = "FEM",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("khaward"),
-                RolId = 2
+                RoleId = 2
             },
             new ApplicationUser
             {
@@ -106,7 +106,7 @@ public class DataContext : DbContext
                 Birthday = null,
                 Gender = "FEM",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("rlowe"),
-                RolId = 2
+                RoleId = 2
             },
             new ApplicationUser
             {
@@ -117,7 +117,7 @@ public class DataContext : DbContext
                 Birthday = null,
                 Gender = "MASC",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("esweet"),
-                RolId = 2
+                RoleId = 2
             },
             new ApplicationUser
             {
@@ -128,7 +128,7 @@ public class DataContext : DbContext
                 Birthday = null,
                 Gender = "MASC",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("dnicolson"),
-                RolId = 2
+                RoleId = 2
             },
             new ApplicationUser
             {
@@ -139,7 +139,7 @@ public class DataContext : DbContext
                 Birthday = null,
                 Gender = "MASC",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("pclaus"),
-                RolId = 2
+                RoleId = 2
             }
         );
 

@@ -16,5 +16,5 @@ public interface ICoreService
 
     public void UpdateApplicationUser(ApplicationUser applicationUser);
 
-    public IEnumerable<ApplicationUser> ApplicationUserGetAll(string? gender, string? rolName);
+    public IEnumerable<ApplicationUser> ApplicationUserGetAll(string? gender, string? RoleName);
 }

@@ -12,7 +12,7 @@ using SocialNetworkApi.Core.Data;
 namespace SocialNetworkApi.Core.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220611200712_v1.0.0")]
+    [Migration("20220611234253_v1.0.0")]
     partial class v100
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,31 +24,31 @@ namespace SocialNetworkApi.Core.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("SocialNetworkApi.Core.Entities.ApplicationRol", b =>
+            modelBuilder.Entity("SocialNetworkApi.Core.Entities.ApplicationRole", b =>
                 {
-                    b.Property<int>("RolId")
+                    b.Property<int>("RoleId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RolId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("RolId");
+                    b.HasKey("RoleId");
 
-                    b.ToTable("ApplicationRol");
+                    b.ToTable("ApplicationRole");
 
                     b.HasData(
                         new
                         {
-                            RolId = 1,
+                            RoleId = 1,
                             Name = "Admin"
                         },
                         new
                         {
-                            RolId = 2,
+                            RoleId = 2,
                             Name = "User"
                         });
                 });
@@ -83,12 +83,12 @@ namespace SocialNetworkApi.Core.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RolId")
+                    b.Property<int>("RoleId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RolId");
+                    b.HasIndex("RoleId");
 
                     b.ToTable("ApplicationUser");
 
@@ -99,8 +99,8 @@ namespace SocialNetworkApi.Core.Migrations
                             Email = "admin@mail.com",
                             FirstName = "Admin",
                             LastName = "Admin",
-                            PasswordHash = "$2a$11$DANETUu7Ygt5FdeKsYKHe.7ZJdV.tCNrakdypwkiTqzxPxOEzpGQK",
-                            RolId = 1
+                            PasswordHash = "$2a$11$L24W9Z4GOi1EP4.jdmEy/uCi0c/RYPHadaosM8V4pMsn8mL6FulCe",
+                            RoleId = 1
                         },
                         new
                         {
@@ -109,8 +109,8 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Barrett",
                             Gender = "MASC",
                             LastName = "Lowe",
-                            PasswordHash = "$2a$11$ULBWj1lVeB0WqT3pfEXqeOf5zlvC4TkLH/IyvcmPYGGDdbX0IT/UC",
-                            RolId = 2
+                            PasswordHash = "$2a$11$w5UVe1vts0adJvQ4mlQYS.51GrrYSC8Bkvq1iCh/BHVWZhy/DWpE6",
+                            RoleId = 2
                         },
                         new
                         {
@@ -119,8 +119,8 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Curtis",
                             Gender = "MASC",
                             LastName = "Disney",
-                            PasswordHash = "$2a$11$C7gKRmurmSbZ8mOPTxOl5ul3RwtENueoM0ocx6lz9vISjNZNjGt0.",
-                            RolId = 2
+                            PasswordHash = "$2a$11$Y2DpH/LMMLK598cnPxu2kO95peKXIFIvpEzktwK8Wf/Nyvmh0Bskq",
+                            RoleId = 2
                         },
                         new
                         {
@@ -129,8 +129,8 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Stafford",
                             Gender = "MASC",
                             LastName = "Owston",
-                            PasswordHash = "$2a$11$W4lpMnJU7FUS2nLi6OF9LuU0mlh0ekAKGnelb/bqPHATCoGMpSyD.",
-                            RolId = 2
+                            PasswordHash = "$2a$11$jdLtz.u2PF0JAwanF1O9Kei5FtCtLPh61km0g7C5pSf3hsrwm/Ff.",
+                            RoleId = 2
                         },
                         new
                         {
@@ -139,8 +139,8 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Kira",
                             Gender = "FEM",
                             LastName = "Lowe",
-                            PasswordHash = "$2a$11$UB6B3c2iNJpqrkFTvb2fu./UFTJHcN07qhv/QbntQyQ2AnytIgDQC",
-                            RolId = 2
+                            PasswordHash = "$2a$11$dUQznXUI/RGI3WH6zOKVlu8j8OGXwpcHHMDT9LUzSnFwJhwKdI8ci",
+                            RoleId = 2
                         },
                         new
                         {
@@ -149,8 +149,8 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Kira",
                             Gender = "FEM",
                             LastName = "Haward",
-                            PasswordHash = "$2a$11$YGdIJnhZXbVsCJZoK3MLyOZH9Yeh0HvVqMw3UUVuf44eJ0B50o2bS",
-                            RolId = 2
+                            PasswordHash = "$2a$11$DgKMw45peEpj2Ej9QlUjPuTzv1Bo1UWyQ4zg883udwELyZAu3DxzC",
+                            RoleId = 2
                         },
                         new
                         {
@@ -159,8 +159,8 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Ronda",
                             Gender = "FEM",
                             LastName = "Lowe",
-                            PasswordHash = "$2a$11$Uu.oY5pj5qjPlKlWQtlj2u8d8nPnT2I4HNPEZHNDyp2owed3LdOWq",
-                            RolId = 2
+                            PasswordHash = "$2a$11$pcKPJnix6UYra4RHJh2GXufg7LyMh2tuOQAzAu6Knxj/vIb5M9GaC",
+                            RoleId = 2
                         },
                         new
                         {
@@ -169,8 +169,8 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Everett",
                             Gender = "MASC",
                             LastName = "Sweet",
-                            PasswordHash = "$2a$11$wK5QWbD4eyR/Ca2VCgnvAOmpzl0Mjj8OLMRRynb7df7BC5M8.uWQm",
-                            RolId = 2
+                            PasswordHash = "$2a$11$FJ2Jxh/p0puKkA/SbVZur.G6Y6t54/pMWiG5wfU0uqG2YEbDU5UlO",
+                            RoleId = 2
                         },
                         new
                         {
@@ -179,8 +179,8 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Doyle",
                             Gender = "MASC",
                             LastName = "Nicolson",
-                            PasswordHash = "$2a$11$D9Ku.2LFIAXd6WW3Cq1WRupjEFKpuTt/wbL.2zUPE0T3OOXmSMaCe",
-                            RolId = 2
+                            PasswordHash = "$2a$11$EZsCROPtRlxdoGz742S4POHBMqsbZ72Anpl62VE0oB1GlI4nh5ju2",
+                            RoleId = 2
                         },
                         new
                         {
@@ -189,20 +189,20 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Pablo",
                             Gender = "MASC",
                             LastName = "Claus",
-                            PasswordHash = "$2a$11$Yazv0zi/vZPV7Jwy2ZO9oOE7kniPBaDWaDKDlDNj3z08EKCd7FJwq",
-                            RolId = 2
+                            PasswordHash = "$2a$11$d8Q5N2FmIbsrb/k2OEMvDeqOtLRHoeoUTr7XS0NUVfBkYMDQmX0G2",
+                            RoleId = 2
                         });
                 });
 
             modelBuilder.Entity("SocialNetworkApi.Core.Entities.ApplicationUser", b =>
                 {
-                    b.HasOne("SocialNetworkApi.Core.Entities.ApplicationRol", "Rol")
+                    b.HasOne("SocialNetworkApi.Core.Entities.ApplicationRole", "Role")
                         .WithMany()
-                        .HasForeignKey("RolId")
+                        .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Rol");
+                    b.Navigation("Role");
                 });
 #pragma warning restore 612, 618
         }

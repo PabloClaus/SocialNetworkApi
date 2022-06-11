@@ -2,8 +2,8 @@
 
 namespace SocialNetworkApi.Core.Entities;
 
-public class ApplicationRol
+public class ApplicationRole
 {
-    [Key] public int RolId { get; set; }
+    [Key] public int RoleId { get; set; }
     [Required] public string? Name { get; set; }
 }

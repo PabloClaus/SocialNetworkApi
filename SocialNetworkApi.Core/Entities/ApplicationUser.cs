@@ -17,7 +17,7 @@ public class ApplicationUser
 
     [Required] public string? PasswordHash { get; set; }
 
-    public ApplicationRol? Rol { get; set; }
+    public ApplicationRole? Role { get; set; }
 
-    [Required] public int RolId { get; set; }
+    [Required] public int RoleId { get; set; }
 }

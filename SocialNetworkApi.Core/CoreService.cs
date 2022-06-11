@@ -35,7 +35,7 @@ public class CoreService : ICoreService
     public ApplicationUser? GetApplicationUser(int id)
     {
         return _context.ApplicationUser!
-            .Include(x => x.Rol!)
+            .Include(x => x.Role!)
             .FirstOrDefault(x => x.Id == id);
     }
 
@@ -51,32 +51,32 @@ public class CoreService : ICoreService
         _context.SaveChanges();
     }
 
-    public IEnumerable<ApplicationUser> ApplicationUserGetAll(string? gender, string? rolName)
+    public IEnumerable<ApplicationUser> ApplicationUserGetAll(string? gender, string? roleName)
     {
 
-        if (AreThereFiltersToApply( gender, rolName))
+        if (AreThereFiltersToApply( gender, roleName))
             return _context.ApplicationUser!
-                .Include(x => x.Rol!)
-                .Where(GetQueryExpression(gender, rolName))
+                .Include(x => x.Role!)
+                .Where(GetQueryExpression(gender, roleName))
                 .ToList();
 
         return _context.ApplicationUser!
-            .Include(x => x.Rol!)
+            .Include(x => x.Role!)
             .ToList();
 
 
-        bool AreThereFiltersToApply(string? aGender, string? aRolName)
+        bool AreThereFiltersToApply(string? aGender, string? aRoleName)
         {
-            return !string.IsNullOrEmpty(aGender) || !string.IsNullOrEmpty(aRolName);
+            return !string.IsNullOrEmpty(aGender) || !string.IsNullOrEmpty(aRoleName);
         }
         
-        Expression<Func<ApplicationUser, bool>> GetQueryExpression(string? aGender, string? aRolName)
+        Expression<Func<ApplicationUser, bool>> GetQueryExpression(string? aGender, string? aRoleName)
         {
             if(string.IsNullOrEmpty(aGender))
-                return x => x.Rol!.Name == aRolName;
-            if(string.IsNullOrEmpty(aRolName))
+                return x => x.Role!.Name == aRoleName;
+            if(string.IsNullOrEmpty(aRoleName))
                 return x => x.Gender == aGender;
-            return x => x.Rol!.Name == aRolName && x.Gender == aGender;
+            return x => x.Role!.Name == aRoleName && x.Gender == aGender;
         }
 
     }

@@ -20,7 +20,7 @@ public class ApplicationUser
             Email = v.Email,
             Birthday = v.Birthday,
             Gender = v.Gender,
-            RolName = v.Rol!.Name
+            RolName = v.Role!.Name
         };
     }
 }

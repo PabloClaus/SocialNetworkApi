@@ -9,7 +9,7 @@ namespace SocialNetworkApi.Services;
 
 public class ApplicationUserService : IApplicationUserService
 {
-    #region ApplicationRol enum
+    #region ApplicationRole enum
 
     public enum ApplicationRol
     {
@@ -64,7 +64,7 @@ public class ApplicationUserService : IApplicationUserService
                 Birthday = userTemp.Birthday,
                 Gender = userTemp.Gender,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(userTemp.Password),
-                RolId = (int) ApplicationRol.User
+                RoleId = (int) ApplicationRol.User
             };
         }
     }
@@ -91,9 +91,9 @@ public class ApplicationUserService : IApplicationUserService
         }
     }
 
-    public IEnumerable<DTO.GET.GetUsers.ApplicationUser> GetAll(string? gender, string? rolName)
+    public IEnumerable<DTO.GET.GetUsers.ApplicationUser> GetAll(string? gender, string? roleName)
     {
-        return _coreService.ApplicationUserGetAll(gender, rolName).Select(x => (DTO.GET.GetUsers.ApplicationUser) x);
+        return _coreService.ApplicationUserGetAll(gender, roleName).Select(x => (DTO.GET.GetUsers.ApplicationUser) x);
     }
 
     public void Delete(int id)

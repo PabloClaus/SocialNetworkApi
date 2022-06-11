@@ -8,7 +8,7 @@ public class ApplicationUser
     public string? Email { get; set; }
     public DateTime? Birthday { get; set; }
     public string? Gender { get; set; }
-    public string? RolName { get; set; }
+    public string? RoleName { get; set; }
 
     public static explicit operator ApplicationUser(Core.Entities.ApplicationUser? v)
     {
@@ -20,7 +20,7 @@ public class ApplicationUser
             Email = v.Email,
             Birthday = v.Birthday,
             Gender = v.Gender,
-            RolName = v.Rol!.Name
+            RoleName = v.Role!.Name
         };
     }
 }
