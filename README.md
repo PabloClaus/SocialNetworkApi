@@ -8,13 +8,14 @@ Social network for developers (NET Dev position Test Task)
 - Each user should specify Email, FirstName, LastName and password. Optionally users may specify Birthday and Gender.
 - Users are able to sign-in (by providing email and password).
 - Users are able to update their profile while being logged in (all fields except email).
-- Users are able to list and get profiles of other users while being logged in.
+- Users are able to list and get profiles of other users while being logged in (Gender and Role optional filters).
 - API for Admin user, that allows to delete profiles of specific users.
 
 **Other features**
 
 - Swagger UI support.
 - Input validation.
+- Filter results option.
 - API methods XML documentation.
 - Json Web Token Authentication.
 - Basic Test Cases with xUnit.
@@ -25,7 +26,6 @@ Social network for developers (NET Dev position Test Task)
 - SQL Server Local DB 15.0.4
 - Microsoft.AspNetCore.Authentication.JwtBearer 6.0.5
 - Swashbuckle.AspNetCore 6.2.3
-
 
 **Requirements**
 
@@ -53,10 +53,26 @@ You should see something like this in SQL Server:
 
 ![image](https://user-images.githubusercontent.com/14250936/173121654-4b556230-4e7c-491b-b583-50f2753b78b5.png)
 
+Initial users are created in the first execution: 9 users and 1 admin (email: admin@mail.com, password: admin)
+
+The user's password follows the rule: FirstName's first character + LastName (For example: Pablo Claus's password is pclaus)
+
 4. Execute the project on IIS.
 
 You will see Swagger open
 
-![image](https://user-images.githubusercontent.com/14250936/173120815-11c53ee6-362f-4cfe-a43f-1825ac80954b.png)
+![image](https://user-images.githubusercontent.com/14250936/173207776-40021b51-7b61-4658-a578-44eb909c433e.png)
 
-5. The App automatically create an admin user (Email: admin@admin.com  Password: @admin)
+5. To use the application with Swagger, you need to follow these steps (as shown in the picture):
+- Create a user in ApplicationUser/Register or use an existing one.
+- Go to ApplicationUser/Authenticate and complete the fields: email and password.
+- Swagger will show the response including a JWT Token. Copy it.
+- Go to Swagger's Authorize button.
+- Put the Token value in the text box.
+- Press the "Authorize" button, and close the window.
+- You could use the API's methods that need authentication: (GelAll, Get, Update and, if you have the Admin role, Delete method).
+
+![image](https://user-images.githubusercontent.com/14250936/173207977-d84aede2-80db-40e8-8d29-ebc5f3da99df.png)
+
+Enjoy!
+
