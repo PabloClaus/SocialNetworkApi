@@ -8,7 +8,7 @@ Social network for developers (NET Dev position Test Task)
 - Each user should specify Email, FirstName, LastName and password. Optionally users may specify Birthday and Gender.
 - Users are able to sign-in (by providing email and password).
 - Users are able to update their profile while being logged in (all fields except email).
-- Users are able to list and get profiles of other users while being logged in.
+- Users are able to list and get profiles of other users while being logged in (Gender and Rol optional filters).
 - API for Admin user, that allows to delete profiles of specific users.
 
 **Other features**
@@ -55,6 +55,7 @@ You should see something like this in SQL Server:
 ![image](https://user-images.githubusercontent.com/14250936/173121654-4b556230-4e7c-491b-b583-50f2753b78b5.png)
 
 Initial users are created in ther first execution: 9 users and 1 admin (mail: admin@mail.com, pass: admin)
+
 User's password follows the rule: FirstName's first character + LastName (For example: Pablo Claus's password is pclaus)
 
 4. Execute the project on IIS.
