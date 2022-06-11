@@ -62,5 +62,5 @@ User's password follows the rule: FirstName's first character + LastName (For ex
 
 You will see Swagger open
 
-![image](https://user-images.githubusercontent.com/14250936/173120815-11c53ee6-362f-4cfe-a43f-1825ac80954b.png)
+![image](https://user-images.githubusercontent.com/14250936/173207776-40021b51-7b61-4658-a578-44eb909c433e.png)
 
