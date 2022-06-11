@@ -9,9 +9,3 @@ public class AuthenticationRequest
 
     [Required] [PasswordPropertyText] public string? Password { get; set; }
 }
-/*
-{
-"Email": "claus@test.com",
-"password": "1234567890"
-}
-*/

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using SocialNetworkApi.Core.Data;
 using SocialNetworkApi.Core.Entities;
 
@@ -50,11 +51,34 @@ public class CoreService : ICoreService
         _context.SaveChanges();
     }
 
-    public IEnumerable<ApplicationUser> ApplicationUserGetAll()
+    public IEnumerable<ApplicationUser> ApplicationUserGetAll(string? gender, string? rolName)
     {
+
+        if (AreThereFiltersToApply( gender, rolName))
+            return _context.ApplicationUser!
+                .Include(x => x.Rol!)
+                .Where(GetQueryExpression(gender, rolName))
+                .ToList();
+
         return _context.ApplicationUser!
             .Include(x => x.Rol!)
             .ToList();
+
+
+        bool AreThereFiltersToApply(string? aGender, string? aRolName)
+        {
+            return !string.IsNullOrEmpty(aGender) || !string.IsNullOrEmpty(aRolName);
+        }
+        
+        Expression<Func<ApplicationUser, bool>> GetQueryExpression(string? aGender, string? aRolName)
+        {
+            if(string.IsNullOrEmpty(aGender))
+                return x => x.Rol!.Name == aRolName;
+            if(string.IsNullOrEmpty(aRolName))
+                return x => x.Gender == aGender;
+            return x => x.Rol!.Name == aRolName && x.Gender == aGender;
+        }
+
     }
 
     #endregion

@@ -69,14 +69,14 @@ public class ApplicationUserService : IApplicationUserService
         }
     }
 
-    public void Update(int userId, DTO.POST.UpdateApplicationUser.ApplicationUser user)
+    public void Update(int userId, DTO.PUT.UpdateApplicationUser.ApplicationUser user)
     {
         var applicationUser = ValidateAndCreateNewUser(GetApplicationUser(userId)!, user);
 
         _coreService.UpdateApplicationUser(applicationUser!);
 
         static Core.Entities.ApplicationUser ValidateAndCreateNewUser(Core.Entities.ApplicationUser tempDbUser,
-            DTO.POST.UpdateApplicationUser.ApplicationUser tempDtoUser)
+            DTO.PUT.UpdateApplicationUser.ApplicationUser tempDtoUser)
         {
             if (!string.IsNullOrEmpty(tempDtoUser.FirstName)) tempDbUser!.FirstName = tempDtoUser.FirstName;
             if (!string.IsNullOrEmpty(tempDtoUser.LastName)) tempDbUser!.LastName = tempDtoUser.LastName;
@@ -91,9 +91,9 @@ public class ApplicationUserService : IApplicationUserService
         }
     }
 
-    public IEnumerable<DTO.GET.GetUsers.ApplicationUser> GetAll()
+    public IEnumerable<DTO.GET.GetUsers.ApplicationUser> GetAll(string? gender, string? rolName)
     {
-        return _coreService.ApplicationUserGetAll().Select(x => (DTO.GET.GetUsers.ApplicationUser) x);
+        return _coreService.ApplicationUserGetAll(gender, rolName).Select(x => (DTO.GET.GetUsers.ApplicationUser) x);
     }
 
     public void Delete(int id)

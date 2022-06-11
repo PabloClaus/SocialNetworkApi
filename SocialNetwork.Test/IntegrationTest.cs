@@ -20,8 +20,8 @@ namespace SocialNetworkApi.Test
 
             var request = new AuthenticationRequest
             {
-                Email = "admin@admin.com",
-                Password = "@dmin"
+                Email = "admin@mail.com",
+                Password = "admin"
             };
 
             var response = await client.PostAsJsonAsync("ApplicationUser/Authenticate", request);
@@ -41,7 +41,7 @@ namespace SocialNetworkApi.Test
 
             var request = new AuthenticationRequest
             {
-                Email = "admin@admin.com",
+                Email = "admin@mail.com",
                 Password = "123456"
             };
 
@@ -61,8 +61,8 @@ namespace SocialNetworkApi.Test
 
             var request = new AuthenticationRequest
             {
-                Email = "admin@admin.com",
-                Password = "@dmin"
+                Email = "admin@mail.com",
+                Password = "admin"
             };
 
             var response = await client.PostAsJsonAsync("ApplicationUser/Authenticate", request);
@@ -88,8 +88,8 @@ namespace SocialNetworkApi.Test
 
             var request = new AuthenticationRequest
             {
-                Email = "admin@admin.com",
-                Password = "@dmin"
+                Email = "admin@mail.com",
+                Password = "admin"
             };
 
             var response = await client.PostAsJsonAsync("ApplicationUser/Authenticate", request);
@@ -117,7 +117,7 @@ namespace SocialNetworkApi.Test
             {
                 FirstName = "FirstName",
                 LastName = "LastName",
-                Email = "admin@admin.com",
+                Email = "admin@mail.com",
                 Password = "aPassword",
                 Birthday = null,
                 Gender = null

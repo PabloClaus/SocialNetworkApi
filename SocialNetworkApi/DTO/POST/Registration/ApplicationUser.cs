@@ -15,7 +15,7 @@ public class ApplicationUser
 
     [DataType(DataType.DateTime)] public DateTime? Birthday { get; set; } = default;
 
-    [RegularExpression("MASC|FEM|OTHER", ErrorMessage = "Only MASC, FEM or OTHER allowed.")]
+    [RegularExpression("MASC|FEM", ErrorMessage = "Only MASC or FEM allowed.")]
     public string? Gender { get; set; } = default;
 
 }

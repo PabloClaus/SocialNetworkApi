@@ -73,10 +73,10 @@ public class ApplicationUserController : ControllerBase
     ///         "email": "something@something.com",
     ///         "password": "aPassword",
     ///         "birthday": "yyyy-MM-dd",
-    ///         "gender": "[MASC|FEM|OTHER]"
+    ///         "gender": "[MASC|FEM]"
     ///     }
     ///
-    /// Note: Birthday and gender ara optional. In case you do not want to complete any of them, delete it/them from the
+    /// Note: Birthday and Gender ara optional. In case you do not want to complete any of them, delete it/them from the
     /// request, like this:
     ///
     ///     POST /Register
@@ -102,7 +102,7 @@ public class ApplicationUserController : ControllerBase
     ///         "lastName": "lastName",
     ///         "email": "something@something.com",
     ///         "password": "aPassword",
-    ///         "gender": "[MASC|FEM|OTHER]"
+    ///         "gender": "[MASC|FEM]"
     ///     }
     /// </remarks>
     /// <response code="200">Registration successful</response>
@@ -131,20 +131,23 @@ public class ApplicationUserController : ControllerBase
     #region Authorize
 
     /// <summary>
-    /// Get the list of the current users of the application
+    /// Get the list of the current users of the application.
+    /// Optional filters can be used (If more than one is used, "and" condition is applied).
     /// </summary>
     /// <returns>A list of users of the application</returns>
+    /// <param name="gender">The gender name to search for (Optional)</param>
+    /// <param name="rolName">The rol name to search for (Optional)</param>
     /// <response code="200">Ok</response>
     /// <response code="500">If there was a problem during the process</response>
     [HttpGet]
     [ProducesResponseType(typeof(ProducesErrorResponseTypeAttribute), 400)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public ActionResult<List<DTO.GET.GetUsers.ApplicationUser>> GetAll()
+    public ActionResult<List<DTO.GET.GetUsers.ApplicationUser>> GetAll(string? gender = null, string? rolName = null)
     {
         try
         {
-            return _applicationUserService.GetAll().ToList();
+            return _applicationUserService.GetAll(gender, rolName).ToList();
         }
         catch (Exception ex)
         {
@@ -189,7 +192,7 @@ public class ApplicationUserController : ControllerBase
     ///     "lastName": "lastName",
     ///     "password": "aPassword",
     ///     "birthday": "yyyy-MM-dd",
-    ///     "gender": "[MASC|FEM|OTHER]"
+    ///     "gender": "[MASC|FEM]"
     ///     }
     /// 
     /// Note: Fields ara optional. In case you do not want to complete any of them, delete it/them from the
@@ -204,7 +207,7 @@ public class ApplicationUserController : ControllerBase
     ///     POST /Update
     ///     {
     ///         "birthday": "yyyy-MM-dd",
-    ///         "gender": "[MASC|FEM|OTHER]"
+    ///         "gender": "[MASC|FEM]"
     ///     }
     /// 
     ///     POST /Update
@@ -219,7 +222,7 @@ public class ApplicationUserController : ControllerBase
     [ProducesResponseType(typeof(ProducesErrorResponseTypeAttribute), 400)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public IActionResult Update(DTO.POST.UpdateApplicationUser.ApplicationUser user)
+    public IActionResult Update(DTO.PUT.UpdateApplicationUser.ApplicationUser user)
     {
         try
         {

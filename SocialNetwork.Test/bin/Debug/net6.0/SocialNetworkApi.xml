@@ -55,10 +55,10 @@
                      "email": "something@something.com",
                      "password": "aPassword",
                      "birthday": "yyyy-MM-dd",
-                     "gender": "[MASC|FEM|OTHER]"
+                     "gender": "[MASC|FEM]"
                  }
             
-             Note: Birthday and gender ara optional. In case you do not want to complete any of them, delete it/them from the
+             Note: Birthday and Gender ara optional. In case you do not want to complete any of them, delete it/them from the
              request, like this:
             
                  POST /Register
@@ -84,17 +84,20 @@
                      "lastName": "lastName",
                      "email": "something@something.com",
                      "password": "aPassword",
-                     "gender": "[MASC|FEM|OTHER]"
+                     "gender": "[MASC|FEM]"
                  }
              </remarks>
              <response code="200">Registration successful</response>
              <response code="500">If there was a problem during the process</response>
         </member>
-        <member name="M:SocialNetworkApi.Controllers.ApplicationUserController.GetAll">
+        <member name="M:SocialNetworkApi.Controllers.ApplicationUserController.GetAll(System.String,System.String)">
             <summary>
-            Get the list of the current users of the application
+            Get the list of the current users of the application.
+            Optional filters can be used (If more than one is used, "and" condition is applied).
             </summary>
             <returns>A list of users of the application</returns>
+            <param name="gender">The gender name to search for (Optional)</param>
+            <param name="rolName">The rol name to search for (Optional)</param>
             <response code="200">Ok</response>
             <response code="500">If there was a problem during the process</response>
         </member>
@@ -106,7 +109,7 @@
             <response code="200">Ok</response>
             <response code="500">If there was a problem during the process</response>
         </member>
-        <member name="M:SocialNetworkApi.Controllers.ApplicationUserController.Update(SocialNetworkApi.DTO.POST.UpdateApplicationUser.ApplicationUser)">
+        <member name="M:SocialNetworkApi.Controllers.ApplicationUserController.Update(SocialNetworkApi.DTO.PUT.UpdateApplicationUser.ApplicationUser)">
              <summary>
              Allows an authenticated user to modify his or her profile
              </summary>
@@ -121,7 +124,7 @@
                  "lastName": "lastName",
                  "password": "aPassword",
                  "birthday": "yyyy-MM-dd",
-                 "gender": "[MASC|FEM|OTHER]"
+                 "gender": "[MASC|FEM]"
                  }
              
              Note: Fields ara optional. In case you do not want to complete any of them, delete it/them from the
@@ -136,7 +139,7 @@
                  POST /Update
                  {
                      "birthday": "yyyy-MM-dd",
-                     "gender": "[MASC|FEM|OTHER]"
+                     "gender": "[MASC|FEM]"
                  }
              
                  POST /Update

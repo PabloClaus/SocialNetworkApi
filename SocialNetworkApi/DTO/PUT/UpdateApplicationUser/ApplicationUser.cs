@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace SocialNetworkApi.DTO.POST.UpdateApplicationUser;
+namespace SocialNetworkApi.DTO.PUT.UpdateApplicationUser;
 
 public class ApplicationUser
 {
@@ -12,6 +12,6 @@ public class ApplicationUser
 
     [DataType(DataType.DateTime)] public DateTime? Birthday { get; set; } = default;
 
-    [RegularExpression("MASC|FEM|OTHER", ErrorMessage = "Only MASC, FEM, OTHER allowed.")]
+    [RegularExpression("MASC|FEM", ErrorMessage = "Only MASC or FEM are allowed.")]
     public string? Gender { get; set; } = default;
 }
