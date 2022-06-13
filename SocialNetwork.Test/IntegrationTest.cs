@@ -3,7 +3,6 @@ using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using Microsoft.AspNetCore.Mvc.Testing;
 using SocialNetworkApi.DTO.POST.Authentication;
-using SocialNetworkApi.Model;
 
 
 namespace SocialNetworkApi.Test

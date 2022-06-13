@@ -2,7 +2,6 @@
 using SocialNetworkApi.Core;
 using SocialNetworkApi.DTO.GET.GetUser;
 using SocialNetworkApi.DTO.POST.Authentication;
-using SocialNetworkApi.Model;
 using ApplicationUser = SocialNetworkApi.DTO.POST.Registration.ApplicationUser;
 
 namespace SocialNetworkApi.Services;
@@ -99,6 +98,8 @@ public class ApplicationUserService : IApplicationUserService
     public void Delete(int id)
     {
         var user = GetApplicationUser(id);
+        if (user!.RoleId == (int)ApplicationRol.Admin)
+            throw new Exception("You can't delete the admin user");
         _coreService.DeleteApplicationUser(user!);
     }
 
@@ -112,7 +113,6 @@ public class ApplicationUserService : IApplicationUserService
     public UserIDs GetIDs(int id)
     {
         var user = GetApplicationUser(id);
-
         return (UserIDs) user;
     }
 

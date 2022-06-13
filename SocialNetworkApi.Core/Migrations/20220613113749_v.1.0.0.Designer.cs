@@ -12,7 +12,7 @@ using SocialNetworkApi.Core.Data;
 namespace SocialNetworkApi.Core.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220611234253_v1.0.0")]
+    [Migration("20220613113749_v.1.0.0")]
     partial class v100
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,9 +34,12 @@ namespace SocialNetworkApi.Core.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("RoleId");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("ApplicationRole");
 
@@ -66,7 +69,7 @@ namespace SocialNetworkApi.Core.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -88,6 +91,9 @@ namespace SocialNetworkApi.Core.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
+
                     b.HasIndex("RoleId");
 
                     b.ToTable("ApplicationUser");
@@ -99,7 +105,7 @@ namespace SocialNetworkApi.Core.Migrations
                             Email = "admin@mail.com",
                             FirstName = "Admin",
                             LastName = "Admin",
-                            PasswordHash = "$2a$11$L24W9Z4GOi1EP4.jdmEy/uCi0c/RYPHadaosM8V4pMsn8mL6FulCe",
+                            PasswordHash = "$2a$11$KW4TFQZ7LFHqTMkdk34Tnu6XRnmfMDdHgJzhgtqvhUmjytp/ZJf2O",
                             RoleId = 1
                         },
                         new
@@ -109,7 +115,7 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Barrett",
                             Gender = "MASC",
                             LastName = "Lowe",
-                            PasswordHash = "$2a$11$w5UVe1vts0adJvQ4mlQYS.51GrrYSC8Bkvq1iCh/BHVWZhy/DWpE6",
+                            PasswordHash = "$2a$11$5t.3J63THAXaXIqVKH62YOBtMw3QGBobHSgLJeZmKBymPEBZEvvje",
                             RoleId = 2
                         },
                         new
@@ -119,7 +125,7 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Curtis",
                             Gender = "MASC",
                             LastName = "Disney",
-                            PasswordHash = "$2a$11$Y2DpH/LMMLK598cnPxu2kO95peKXIFIvpEzktwK8Wf/Nyvmh0Bskq",
+                            PasswordHash = "$2a$11$TO6FRJmBL2.8Uho47Ob1R.W8pTlQCu3jsyNmAjFjwZqte0/1XbCjO",
                             RoleId = 2
                         },
                         new
@@ -129,7 +135,7 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Stafford",
                             Gender = "MASC",
                             LastName = "Owston",
-                            PasswordHash = "$2a$11$jdLtz.u2PF0JAwanF1O9Kei5FtCtLPh61km0g7C5pSf3hsrwm/Ff.",
+                            PasswordHash = "$2a$11$SJqy1S76/jdgfSdBFDfFwuPHQyUZ9cbcMH1Y0ivGM2nATLn4TiQTW",
                             RoleId = 2
                         },
                         new
@@ -139,7 +145,7 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Kira",
                             Gender = "FEM",
                             LastName = "Lowe",
-                            PasswordHash = "$2a$11$dUQznXUI/RGI3WH6zOKVlu8j8OGXwpcHHMDT9LUzSnFwJhwKdI8ci",
+                            PasswordHash = "$2a$11$0I.FQrf9612ykfm9Ed0qI.tt8Is32mWcmabMz58XK4WLeGhYbqJcS",
                             RoleId = 2
                         },
                         new
@@ -149,7 +155,7 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Kira",
                             Gender = "FEM",
                             LastName = "Haward",
-                            PasswordHash = "$2a$11$DgKMw45peEpj2Ej9QlUjPuTzv1Bo1UWyQ4zg883udwELyZAu3DxzC",
+                            PasswordHash = "$2a$11$BATO5L1pVodZme3/4vM4VO1C9g0wOhUQr73Q8WjTnCJX1N5alGNym",
                             RoleId = 2
                         },
                         new
@@ -159,7 +165,7 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Ronda",
                             Gender = "FEM",
                             LastName = "Lowe",
-                            PasswordHash = "$2a$11$pcKPJnix6UYra4RHJh2GXufg7LyMh2tuOQAzAu6Knxj/vIb5M9GaC",
+                            PasswordHash = "$2a$11$E5lz7reF0awJLJ9/QqZ4ou2RBFTbKLm2z0XLYBnnvAnrIdFSQ0aNK",
                             RoleId = 2
                         },
                         new
@@ -169,7 +175,7 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Everett",
                             Gender = "MASC",
                             LastName = "Sweet",
-                            PasswordHash = "$2a$11$FJ2Jxh/p0puKkA/SbVZur.G6Y6t54/pMWiG5wfU0uqG2YEbDU5UlO",
+                            PasswordHash = "$2a$11$E70Apq5prmS58ndfHtAKsOFf6KJyGN3uBuDATs1XpXj3IkP/84GGW",
                             RoleId = 2
                         },
                         new
@@ -179,7 +185,7 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Doyle",
                             Gender = "MASC",
                             LastName = "Nicolson",
-                            PasswordHash = "$2a$11$EZsCROPtRlxdoGz742S4POHBMqsbZ72Anpl62VE0oB1GlI4nh5ju2",
+                            PasswordHash = "$2a$11$ihLUbWcJVIwlwmfh3emf0.ZXGR2vyA4nDOzG7XuL449sCjAvj.BOC",
                             RoleId = 2
                         },
                         new
@@ -189,7 +195,7 @@ namespace SocialNetworkApi.Core.Migrations
                             FirstName = "Pablo",
                             Gender = "MASC",
                             LastName = "Claus",
-                            PasswordHash = "$2a$11$d8Q5N2FmIbsrb/k2OEMvDeqOtLRHoeoUTr7XS0NUVfBkYMDQmX0G2",
+                            PasswordHash = "$2a$11$Fb1WlLznUhZekbSvioGeCuMlK7dXUuwJzAaAefIuGbSVzD8vEV1H2",
                             RoleId = 2
                         });
                 });

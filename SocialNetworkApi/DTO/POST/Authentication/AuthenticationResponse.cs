@@ -1,6 +1,6 @@
 ﻿using SocialNetworkApi.Core.Entities;
 
-namespace SocialNetworkApi.Model;
+namespace SocialNetworkApi.DTO.POST.Authentication;
 
 public class AuthenticationResponse
 {

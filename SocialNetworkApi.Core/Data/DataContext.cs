@@ -23,6 +23,15 @@ public class DataContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
+        modelBuilder.Entity<ApplicationUser>(entity => {
+            entity.HasIndex(e => e.Email).IsUnique();
+        });
+
+        modelBuilder.Entity<ApplicationRole>(entity => {
+            entity.HasIndex(e => e.Name).IsUnique();
+        });
+
         #region RolSeed
 
         modelBuilder.Entity<ApplicationRole>().HasData(

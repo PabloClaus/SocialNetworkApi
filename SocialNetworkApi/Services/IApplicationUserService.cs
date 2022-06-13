@@ -1,6 +1,5 @@
 ﻿using SocialNetworkApi.DTO.GET.GetUser;
 using SocialNetworkApi.DTO.POST.Authentication;
-using SocialNetworkApi.Model;
 using ApplicationUser = SocialNetworkApi.DTO.POST.Registration.ApplicationUser;
 
 namespace SocialNetworkApi.Services;
