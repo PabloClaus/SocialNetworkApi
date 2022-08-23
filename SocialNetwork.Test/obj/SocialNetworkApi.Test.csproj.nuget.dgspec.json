@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetwork.Test\\SocialNetworkApi.Test.csproj": {}
+    "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetwork.Test\\SocialNetworkApi.Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetwork.Test\\SocialNetworkApi.Test.csproj": {
+    "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetwork.Test\\SocialNetworkApi.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetwork.Test\\SocialNetworkApi.Test.csproj",
+        "projectUniqueName": "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetwork.Test\\SocialNetworkApi.Test.csproj",
         "projectName": "SocialNetworkApi.Test",
-        "projectPath": "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetwork.Test\\SocialNetworkApi.Test.csproj",
-        "packagesPath": "C:\\Users\\Pablo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetwork.Test\\obj\\",
+        "projectPath": "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetwork.Test\\SocialNetworkApi.Test.csproj",
+        "packagesPath": "C:\\Users\\claus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetwork.Test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Pablo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\claus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetworkApi\\SocialNetworkApi.csproj": {
-                "projectPath": "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetworkApi\\SocialNetworkApi.csproj"
+              "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetworkApi\\SocialNetworkApi.csproj": {
+                "projectPath": "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetworkApi\\SocialNetworkApi.csproj"
               }
             }
           }
@@ -46,11 +46,11 @@
           "dependencies": {
             "Microsoft.AspNetCore.Mvc.Testing": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[17.1.0, )"
+              "version": "[17.3.0, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -60,13 +60,13 @@
             },
             "xunit": {
               "target": "Package",
-              "version": "[2.4.1, )"
+              "version": "[2.4.2, )"
             },
             "xunit.runner.visualstudio": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.4.3, )"
+              "version": "[2.4.5, )"
             }
           },
           "imports": [
@@ -75,7 +75,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -84,21 +85,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetworkApi.Core\\SocialNetworkApi.Core.csproj": {
+    "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetworkApi.Core\\SocialNetworkApi.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetworkApi.Core\\SocialNetworkApi.Core.csproj",
+        "projectUniqueName": "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetworkApi.Core\\SocialNetworkApi.Core.csproj",
         "projectName": "SocialNetworkApi.Core",
-        "projectPath": "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetworkApi.Core\\SocialNetworkApi.Core.csproj",
-        "packagesPath": "C:\\Users\\Pablo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetworkApi.Core\\obj\\",
+        "projectPath": "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetworkApi.Core\\SocialNetworkApi.Core.csproj",
+        "packagesPath": "C:\\Users\\claus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetworkApi.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Pablo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\claus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -130,23 +131,23 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.8, )"
             }
           },
           "imports": [
@@ -155,7 +156,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -164,21 +166,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetworkApi\\SocialNetworkApi.csproj": {
+    "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetworkApi\\SocialNetworkApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetworkApi\\SocialNetworkApi.csproj",
+        "projectUniqueName": "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetworkApi\\SocialNetworkApi.csproj",
         "projectName": "SocialNetworkApi",
-        "projectPath": "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetworkApi\\SocialNetworkApi.csproj",
-        "packagesPath": "C:\\Users\\Pablo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetworkApi\\obj\\",
+        "projectPath": "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetworkApi\\SocialNetworkApi.csproj",
+        "packagesPath": "C:\\Users\\claus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetworkApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Pablo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\claus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -192,8 +194,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetworkApi.Core\\SocialNetworkApi.Core.csproj": {
-                "projectPath": "C:\\Users\\Pablo\\source\\repos\\SocialNetworkApi\\SocialNetworkApi.Core\\SocialNetworkApi.Core.csproj"
+              "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetworkApi.Core\\SocialNetworkApi.Core.csproj": {
+                "projectPath": "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetworkApi.Core\\SocialNetworkApi.Core.csproj"
               }
             }
           }
@@ -214,33 +216,33 @@
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
-              "version": "[1.15.1, )"
+              "version": "[1.17.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.4.0, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[6.19.0, )"
+              "version": "[6.22.0, )"
             }
           },
           "imports": [
@@ -249,7 +251,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -261,7 +264,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

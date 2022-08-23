@@ -20,11 +20,11 @@ public class ApplicationAdminController : ControllerBase
     /// Allows Admin user to delete an user's profile
     /// </summary>
     /// <param name="id"></param>
-    /// <returns>An "Delete Ok" message</returns>
+    /// <returns>An "DeleteAsync Ok" message</returns>
     /// <remarks>
     /// Sample request:
     ///
-    ///     POST /Delete
+    ///     POST /DeleteAsync
     ///      {
     ///         "id": 1
     ///      }
@@ -35,17 +35,16 @@ public class ApplicationAdminController : ControllerBase
     [ProducesResponseType(typeof(ProducesErrorResponseTypeAttribute), 400)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public IActionResult Delete(int id)
+    public async Task<IActionResult> Delete(int id)
     {
         try
         {
-            _applicationUserService.Delete(id);
+           await _applicationUserService.DeleteAsync(id);
         }
         catch (Exception ex)
         {
             return BadRequest(ex.ToString());
         }
-
-        return Ok(new {message = "Delete Ok"});
+        return Ok("Delete Ok");
     }
 }

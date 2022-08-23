@@ -16,7 +16,7 @@ public class JwtMiddleware
     {
         var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
         var userId = jsonWebTokenService.ValidateToken(token!);
-        if (userId != null) context.Items["UserIDs"] = applicationUserService.GetIDs(userId.Value);
+        if (userId != null) context.Items["UserIDs"] = await applicationUserService.GetIDsAsync(userId.Value);
 
         await _next(context);
     }

@@ -49,7 +49,7 @@ public class ApplicationUserController : ControllerBase
     {
         try
         {
-            var response = _applicationUserService.Authenticate(request);
+            var response = _applicationUserService.AuthenticateAsync(request);
             return Ok(response);
         }
         catch (Exception ex)
@@ -116,7 +116,7 @@ public class ApplicationUserController : ControllerBase
     {
         try
         {
-            _applicationUserService.Register(user);
+            _applicationUserService.RegisterAsync(user);
         }
         catch (Exception ex)
         {
@@ -143,11 +143,11 @@ public class ApplicationUserController : ControllerBase
     [ProducesResponseType(typeof(ProducesErrorResponseTypeAttribute), 400)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public ActionResult<List<DTO.GET.GetUsers.ApplicationUser>> GetAll(string? gender = null, string? roleName = null)
+    public async Task<ActionResult<List<DTO.GET.GetUsers.ApplicationUser>>> GetAll(string? gender = null, string? roleName = null)
     {
         try
         {
-            return _applicationUserService.GetAll(gender, roleName).ToList();
+            return Ok(await _applicationUserService.GetAllAsync(gender, roleName));
         }
         catch (Exception ex)
         {
@@ -165,12 +165,12 @@ public class ApplicationUserController : ControllerBase
     [ProducesResponseType(typeof(ProducesErrorResponseTypeAttribute), 400)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public ActionResult<DTO.GET.GetUser.ApplicationUser> Get()
+    public async Task<ActionResult<DTO.GET.GetUser.ApplicationUser>> Get()
     {
         try
         {
             var contextUserIDs = (UserIDs) _httpContextAccessor!.HttpContext!.Items["UserIDs"]!;
-            return _applicationUserService.GetById(contextUserIDs.Id)!;
+            return await _applicationUserService.GetByIdAsync(contextUserIDs.Id);
         }
         catch (Exception ex)
         {
@@ -222,12 +222,12 @@ public class ApplicationUserController : ControllerBase
     [ProducesResponseType(typeof(ProducesErrorResponseTypeAttribute), 400)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public IActionResult Update(DTO.PUT.UpdateApplicationUser.ApplicationUser user)
+    public async Task<IActionResult> Update(DTO.PUT.UpdateApplicationUser.ApplicationUser user)
     {
         try
         {
             var contextUserIDs = (UserIDs) _httpContextAccessor!.HttpContext!.Items["UserIDs"]!;
-            _applicationUserService.Update(contextUserIDs.Id, user);
+            await _applicationUserService.UpdateAsync(contextUserIDs.Id, user);
         }
         catch (Exception ex)
         {

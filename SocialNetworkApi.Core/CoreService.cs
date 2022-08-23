@@ -16,53 +16,55 @@ public class CoreService : ICoreService
 
     #region ICoreService Members
 
-    public ApplicationUser? GetApplicationUserByEmail(string? requestEmail)
+    public async Task<ApplicationUser?> GetApplicationUserByEmailAsync(string? requestEmail)
     {
-        return _context.ApplicationUser!.SingleOrDefault(x => x.Email == requestEmail);
+        return await _context.ApplicationUser!.SingleOrDefaultAsync(x => x.Email == requestEmail);
     }
 
-    public bool IsMailAvailable(string email)
+    public async Task<bool> IsMailAvailableAsync(string email)
     {
-        return !_context.ApplicationUser!.Any(x => x.Email == email);
+        return await _context.ApplicationUser!.AnyAsync(x => x.Email == email);
     }
 
-    public void AddApplicationUser(ApplicationUser entityUser)
+    public async Task AddApplicationUser(ApplicationUser entityUser)
     {
         _context.ApplicationUser!.Add(entityUser);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
     }
 
-    public ApplicationUser? GetApplicationUser(int id)
+    public async Task<ApplicationUser?> GetApplicationUserAsync(int id)
     {
-        return _context.ApplicationUser!
+        return await _context.ApplicationUser!
             .Include(x => x.Role!)
-            .FirstOrDefault(x => x.Id == id);
+            .FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    public void DeleteApplicationUser(ApplicationUser applicationUser)
+    public async Task DeleteApplicationUser(ApplicationUser applicationUser)
     {
         _context.ApplicationUser!.Remove(applicationUser);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
     }
 
-    public void UpdateApplicationUser(ApplicationUser applicationUser)
+    public async Task UpdateApplicationUser (ApplicationUser applicationUser)
     {
         _context.ApplicationUser!.Update(applicationUser);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
     }
 
-    public IEnumerable<ApplicationUser> ApplicationUserGetAll(string? gender, string? roleName)
+    public async Task<IEnumerable<ApplicationUser>> ApplicationUserGetAllAsync(string? gender, string? roleName)
     {
 
         if (AreThereFiltersToApply( gender, roleName))
-            return _context.ApplicationUser!
+            return await _context.ApplicationUser!
                 .Include(x => x.Role!)
+                .AsNoTracking()
                 .Where(GetQueryExpression(gender, roleName))
-                .ToList();
+                .ToListAsync();
 
-        return _context.ApplicationUser!
+        return await _context.ApplicationUser!
             .Include(x => x.Role!)
-            .ToList();
+            .AsNoTracking()
+            .ToListAsync();
 
 
         bool AreThereFiltersToApply(string? aGender, string? aRoleName)

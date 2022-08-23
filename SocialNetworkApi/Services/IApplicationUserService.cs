@@ -6,11 +6,11 @@ namespace SocialNetworkApi.Services;
 
 public interface IApplicationUserService
 {
-    AuthenticationResponse Authenticate(AuthenticationRequest request);
-    void Register(ApplicationUser user);
-    void Update(int userId, DTO.PUT.UpdateApplicationUser.ApplicationUser user);
-    IEnumerable<DTO.GET.GetUsers.ApplicationUser> GetAll(string? gender, string? rolName);
-    void Delete(int id);
-    DTO.GET.GetUser.ApplicationUser? GetById(int id);
-    UserIDs GetIDs(int userId);
+    Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest request);
+    Task RegisterAsync(ApplicationUser user);
+    Task UpdateAsync(int userId, DTO.PUT.UpdateApplicationUser.ApplicationUser user);
+    Task<IEnumerable<DTO.GET.GetUsers.ApplicationUser>> GetAllAsync(string? gender, string? rolName);
+    Task DeleteAsync(int id);
+    Task<DTO.GET.GetUser.ApplicationUser> GetByIdAsync(int id);
+    Task<UserIDs> GetIDsAsync(int userId);
 }

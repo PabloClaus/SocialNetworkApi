@@ -30,9 +30,9 @@ public class ApplicationUserService : IApplicationUserService
 
     #region IApplicationUserService Members
 
-    public AuthenticationResponse Authenticate(AuthenticationRequest request)
+    public async Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest request)
     {
-        var user = _coreService.GetApplicationUserByEmail(request.Email);
+        var user = await _coreService.GetApplicationUserByEmailAsync(request.Email);
         if (IsApplicationUserNotOk(request, user)) throw new Exception("Username or password is incorrect");
 
         var response = (AuthenticationResponse) user!;
@@ -45,13 +45,13 @@ public class ApplicationUserService : IApplicationUserService
         }
     }
 
-    public void Register(ApplicationUser user)
+    public async Task RegisterAsync(ApplicationUser user)
     {
-        if (!_coreService.IsMailAvailable(user.Email!))
+        if (!await _coreService.IsMailAvailableAsync(user.Email!))
             throw new Exception("Email '" + user.Email + "' is already taken");
 
         var entityUser = GetEntityUser(user);
-        _coreService.AddApplicationUser(entityUser);
+            await _coreService.AddApplicationUser(entityUser);
 
         static Core.Entities.ApplicationUser GetEntityUser(ApplicationUser userTemp)
         {
@@ -68,11 +68,11 @@ public class ApplicationUserService : IApplicationUserService
         }
     }
 
-    public void Update(int userId, DTO.PUT.UpdateApplicationUser.ApplicationUser user)
+    public async Task UpdateAsync(int userId, DTO.PUT.UpdateApplicationUser.ApplicationUser user)
     {
-        var applicationUser = ValidateAndCreateNewUser(GetApplicationUser(userId)!, user);
+        var applicationUser = ValidateAndCreateNewUser(await GetApplicationUserAsync(userId), user);
 
-        _coreService.UpdateApplicationUser(applicationUser!);
+        await _coreService.UpdateApplicationUser(applicationUser!);
 
         static Core.Entities.ApplicationUser ValidateAndCreateNewUser(Core.Entities.ApplicationUser tempDbUser,
             DTO.PUT.UpdateApplicationUser.ApplicationUser tempDtoUser)
@@ -90,37 +90,37 @@ public class ApplicationUserService : IApplicationUserService
         }
     }
 
-    public IEnumerable<DTO.GET.GetUsers.ApplicationUser> GetAll(string? gender, string? roleName)
+    public async Task<IEnumerable<DTO.GET.GetUsers.ApplicationUser>> GetAllAsync(string? gender, string? roleName)
     {
-        return _coreService.ApplicationUserGetAll(gender, roleName).Select(x => (DTO.GET.GetUsers.ApplicationUser) x);
+        return await _coreService.ApplicationUserGetAllAsync(gender, roleName);
     }
 
-    public void Delete(int id)
+    public async Task DeleteAsync(int id)
     {
-        var user = GetApplicationUser(id);
+        var user = await GetApplicationUserAsync(id);
         if (user!.RoleId == (int)ApplicationRol.Admin)
             throw new Exception("You can't delete the admin user");
-        _coreService.DeleteApplicationUser(user!);
+        await _coreService.DeleteApplicationUser(user);
     }
 
-    public DTO.GET.GetUser.ApplicationUser GetById(int id)
+    public async Task<DTO.GET.GetUser.ApplicationUser> GetByIdAsync(int id)
     {
-        var user = GetApplicationUser(id);
+        var user = await GetApplicationUserAsync(id);
 
         return (DTO.GET.GetUser.ApplicationUser) user;
     }
 
-    public UserIDs GetIDs(int id)
+    public async Task <UserIDs> GetIDsAsync(int id)
     {
-        var user = GetApplicationUser(id);
+        var user = await GetApplicationUserAsync(id);
         return (UserIDs) user;
     }
 
     #endregion
 
-    private Core.Entities.ApplicationUser? GetApplicationUser(int id)
+    private async Task<Core.Entities.ApplicationUser> GetApplicationUserAsync(int id)
     {
-        var user = _coreService.GetApplicationUser(id);
+        var user = await _coreService.GetApplicationUserAsync(id);
         if (user == null) throw new Exception("User does not exist");
         return user;
     }
