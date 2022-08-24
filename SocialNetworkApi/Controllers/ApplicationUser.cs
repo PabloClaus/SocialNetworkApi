@@ -43,11 +43,11 @@ public class ApplicationUserController : ControllerBase
     [HttpPost]
     [ProducesResponseType(typeof(ProducesErrorResponseTypeAttribute), 400)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public ActionResult Authenticate(Common.DTO.POST.Authentication.AuthenticationRequest request)
+    public async Task<ActionResult> Authenticate(Common.DTO.POST.Authentication.AuthenticationRequest request)
     {
         try
         {
-            var response = _applicationUserService.AuthenticateAsync(request);
+            var response = await _applicationUserService.AuthenticateAsync(request);
             return Ok(response);
         }
         catch (Exception ex)

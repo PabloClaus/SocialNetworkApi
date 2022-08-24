@@ -17,7 +17,7 @@ namespace SocialNetworkApi.Test
 
             var client = application.CreateClient();
 
-            var request = new AuthenticationRequest
+            var request = new Common.DTO.POST.Authentication.AuthenticationRequest()
             {
                 Email = "admin@mail.com",
                 Password = "admin"
@@ -25,7 +25,7 @@ namespace SocialNetworkApi.Test
 
             var response = await client.PostAsJsonAsync("ApplicationUser/Authenticate", request);
             var body = response.Content.ReadFromJsonAsync<AuthenticationResponse>();
-            var topken = body.Result!.Token;
+            var token = body.Result!.Token;
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         }
