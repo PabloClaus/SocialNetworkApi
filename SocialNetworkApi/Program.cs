@@ -1,8 +1,10 @@
 using System.Reflection;
+using AutoMapper;
 using Microsoft.OpenApi.Models;
 using SocialNetworkApi.Authorization.Jwt;
 using SocialNetworkApi.Core;
 using SocialNetworkApi.Core.Data;
+using SocialNetworkApi.Helpers;
 using SocialNetworkApi.Model;
 using SocialNetworkApi.Services;
 
@@ -15,6 +17,12 @@ builder.Services.AddDbContext<DataContext>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddCors();
 builder.Services.AddControllers();
+
+//automapper
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+var mapperConfig = new MapperConfiguration(cfg => { cfg.AddProfile<AutoMapperProfile>(); });
+mapperConfig.AssertConfigurationIsValid();
+
 
 builder.Services.AddSwaggerGen(c =>
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using SocialNetworkApi.DTO.GET.GetUser;
+using SocialNetworkApi.Common.DTO.GET.GetUser;
 
 namespace SocialNetworkApi.Authorization;
 
@@ -23,7 +23,7 @@ public class AuthorizeAttribute : Attribute, IAuthorizationFilter
             return;
 
         var userIDs = (UserIDs) context!.HttpContext!.Items["UserIDs"]!;
-        if (userIDs == null || (_roles.Any() && !_roles.Contains(userIDs.RoleId)))
+        if (_roles.Any() && !_roles.Contains(userIDs.RoleId))
             context.Result = new JsonResult(new {message = "Unauthorized"})
                 {StatusCode = StatusCodes.Status401Unauthorized};
     }

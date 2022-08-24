@@ -2,7 +2,7 @@ using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using Microsoft.AspNetCore.Mvc.Testing;
-using SocialNetworkApi.DTO.POST.Authentication;
+using SocialNetworkApi.Common.DTO.POST.Authentication;
 
 
 namespace SocialNetworkApi.Test
@@ -71,7 +71,7 @@ namespace SocialNetworkApi.Test
 
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             
-            var users = await client.GetFromJsonAsync<List<DTO.GET.GetUsers.ApplicationUser>>("ApplicationUser/GetAll");
+            var users = await client.GetFromJsonAsync<List<Common.DTO.GET.GetUsers.ApplicationUser>>("ApplicationUser/GetAll");
 
             Assert.NotEmpty(users!);
 
@@ -98,7 +98,7 @@ namespace SocialNetworkApi.Test
 
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            var users = await client.GetFromJsonAsync<List<DTO.GET.GetUsers.ApplicationUser>>("ApplicationUser/GetAll");
+            var users = await client.GetFromJsonAsync<List<Common.DTO.GET.GetUsers.ApplicationUser>>("ApplicationUser/GetAll");
 
             Assert.NotEmpty(users!);
 
@@ -112,7 +112,7 @@ namespace SocialNetworkApi.Test
 
             var client = application.CreateClient();
 
-            var request = new DTO.POST.Registration.ApplicationUser
+            var request = new Common.DTO.POST.Registration.ApplicationUser
             {
                 FirstName = "FirstName",
                 LastName = "LastName",

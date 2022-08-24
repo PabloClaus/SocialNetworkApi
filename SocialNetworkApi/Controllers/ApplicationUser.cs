@@ -1,13 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using SocialNetworkApi.Authorization;
-using SocialNetworkApi.DTO.GET.GetUser;
-using SocialNetworkApi.DTO.POST.Authentication;
+using SocialNetworkApi.Common.DTO.GET.GetUser;
 using SocialNetworkApi.Services;
-using ApplicationUser = SocialNetworkApi.DTO.POST.Registration.ApplicationUser;
 
 namespace SocialNetworkApi.Controllers;
 
-[Authorize((int) ApplicationUserService.ApplicationRol.User, (int) ApplicationUserService.ApplicationRol.Admin)]
+[Authorize((int) ApplicationUserService.ApplicationRole.User, (int) ApplicationUserService.ApplicationRole.Admin)]
 [ApiController]
 [Route("[controller]/[action]")]
 public class ApplicationUserController : ControllerBase
@@ -45,7 +43,7 @@ public class ApplicationUserController : ControllerBase
     [HttpPost]
     [ProducesResponseType(typeof(ProducesErrorResponseTypeAttribute), 400)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public ActionResult Authenticate(AuthenticationRequest request)
+    public ActionResult Authenticate(Common.DTO.POST.Authentication.AuthenticationRequest request)
     {
         try
         {
@@ -112,11 +110,11 @@ public class ApplicationUserController : ControllerBase
     [ProducesResponseType(typeof(ProducesErrorResponseTypeAttribute), 400)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public IActionResult Register(ApplicationUser user)
+    public async Task<IActionResult> Register(Common.DTO.POST.Registration.ApplicationUser user)
     {
         try
         {
-            _applicationUserService.RegisterAsync(user);
+            await _applicationUserService.RegisterAsync(user);
         }
         catch (Exception ex)
         {
@@ -143,7 +141,7 @@ public class ApplicationUserController : ControllerBase
     [ProducesResponseType(typeof(ProducesErrorResponseTypeAttribute), 400)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<List<DTO.GET.GetUsers.ApplicationUser>>> GetAll(string? gender = null, string? roleName = null)
+    public async Task<ActionResult<List<Common.DTO.GET.GetUsers.ApplicationUser>>> GetAll(string? gender = null, string? roleName = null)
     {
         try
         {
@@ -165,7 +163,7 @@ public class ApplicationUserController : ControllerBase
     [ProducesResponseType(typeof(ProducesErrorResponseTypeAttribute), 400)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<DTO.GET.GetUser.ApplicationUser>> Get()
+    public async Task<ActionResult<Common.DTO.GET.GetUser.ApplicationUser>> Get()
     {
         try
         {
@@ -222,7 +220,7 @@ public class ApplicationUserController : ControllerBase
     [ProducesResponseType(typeof(ProducesErrorResponseTypeAttribute), 400)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> Update(DTO.PUT.UpdateApplicationUser.ApplicationUser user)
+    public async Task<IActionResult> Update(Common.DTO.PUT.UpdateApplicationUser.ApplicationUser user)
     {
         try
         {

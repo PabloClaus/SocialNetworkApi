@@ -1,13 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "eulkWm8+/Dn9JSYdkhbGij3iKTD5BM2JHMLbUVloHyDgv1VqypnW5v2AhdL9H6qLFxCvLO2LeVZAfVgQM3A21A==",
+  "dgSpecHash": "Rit4AznU+msaqHfgh9eSkUhqLtsD/dbB0CIJi5jhassNUVQM8YAljDzI6+ZxPvc/gJElr3ALXiVibabJngjToA==",
   "success": true,
   "projectFilePath": "C:\\Users\\claus\\Documents\\GitHub\\SocialNetworkApi\\SocialNetworkApi\\SocialNetworkApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\claus\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\claus\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\claus\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\claus\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\claus\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.8\\microsoft.aspnetcore.authentication.jwtbearer.6.0.8.nupkg.sha512",
-    "C:\\Users\\claus\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\claus\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\claus\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\claus\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\claus\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.8\\microsoft.entityframeworkcore.6.0.8.nupkg.sha512",

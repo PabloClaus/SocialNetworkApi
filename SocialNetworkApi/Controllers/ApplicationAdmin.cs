@@ -4,7 +4,7 @@ using SocialNetworkApi.Services;
 
 namespace SocialNetworkApi.Controllers;
 
-[Authorize((int) ApplicationUserService.ApplicationRol.Admin)]
+[Authorize((int) ApplicationUserService.ApplicationRole.Admin)]
 [ApiController]
 [Route("[controller]/[action]")]
 public class ApplicationAdminController : ControllerBase

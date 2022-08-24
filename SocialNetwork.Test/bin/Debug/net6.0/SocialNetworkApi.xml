@@ -9,11 +9,11 @@
              Allows Admin user to delete an user's profile
              </summary>
              <param name="id"></param>
-             <returns>An "Delete Ok" message</returns>
+             <returns>An "DeleteAsync Ok" message</returns>
              <remarks>
              Sample request:
             
-                 POST /Delete
+                 POST /DeleteAsync
                   {
                      "id": 1
                   }
@@ -21,7 +21,7 @@
              <response code="200">Deletes Ok</response>
              <response code="500">If there was a problem during the process</response>
         </member>
-        <member name="M:SocialNetworkApi.Controllers.ApplicationUserController.Authenticate(SocialNetworkApi.DTO.POST.Authentication.AuthenticationRequest)">
+        <member name="M:SocialNetworkApi.Controllers.ApplicationUserController.Authenticate(SocialNetworkApi.Common.DTO.POST.Authentication.AuthenticationRequest)">
              <summary>
                  Allows an user to authenticate
              </summary>
@@ -39,7 +39,7 @@
              <response code="200">Authentication Ok</response>
              <response code="500">If there was a problem during the process</response>
         </member>
-        <member name="M:SocialNetworkApi.Controllers.ApplicationUserController.Register(SocialNetworkApi.DTO.POST.Registration.ApplicationUser)">
+        <member name="M:SocialNetworkApi.Controllers.ApplicationUserController.Register(SocialNetworkApi.Common.DTO.POST.Registration.ApplicationUser)">
              <summary>
              Allows an user to authenticate
              </summary>
@@ -109,7 +109,7 @@
             <response code="200">Ok</response>
             <response code="500">If there was a problem during the process</response>
         </member>
-        <member name="M:SocialNetworkApi.Controllers.ApplicationUserController.Update(SocialNetworkApi.DTO.PUT.UpdateApplicationUser.ApplicationUser)">
+        <member name="M:SocialNetworkApi.Controllers.ApplicationUserController.Update(SocialNetworkApi.Common.DTO.PUT.UpdateApplicationUser.ApplicationUser)">
              <summary>
              Allows an authenticated user to modify his or her profile
              </summary>

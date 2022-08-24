@@ -1,0 +1,12 @@
+C:\Users\claus\Documents\GitHub\SocialNetworkApi\SocialNetworkApi.Common\obj\Debug\net6.0\SocialNetworkApi.Common.csproj.AssemblyReference.cache
+C:\Users\claus\Documents\GitHub\SocialNetworkApi\SocialNetworkApi.Common\obj\Debug\net6.0\SocialNetworkApi.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\claus\Documents\GitHub\SocialNetworkApi\SocialNetworkApi.Common\obj\Debug\net6.0\SocialNetworkApi.Common.AssemblyInfoInputs.cache
+C:\Users\claus\Documents\GitHub\SocialNetworkApi\SocialNetworkApi.Common\obj\Debug\net6.0\SocialNetworkApi.Common.AssemblyInfo.cs
+C:\Users\claus\Documents\GitHub\SocialNetworkApi\SocialNetworkApi.Common\obj\Debug\net6.0\SocialNetworkApi.Common.csproj.CoreCompileInputs.cache
+C:\Users\claus\Documents\GitHub\SocialNetworkApi\SocialNetworkApi.Common\bin\Debug\net6.0\SocialNetworkApi.Common.deps.json
+C:\Users\claus\Documents\GitHub\SocialNetworkApi\SocialNetworkApi.Common\bin\Debug\net6.0\SocialNetworkApi.Common.dll
+C:\Users\claus\Documents\GitHub\SocialNetworkApi\SocialNetworkApi.Common\bin\Debug\net6.0\SocialNetworkApi.Common.pdb
+C:\Users\claus\Documents\GitHub\SocialNetworkApi\SocialNetworkApi.Common\obj\Debug\net6.0\SocialNetworkApi.Common.dll
+C:\Users\claus\Documents\GitHub\SocialNetworkApi\SocialNetworkApi.Common\obj\Debug\net6.0\refint\SocialNetworkApi.Common.dll
+C:\Users\claus\Documents\GitHub\SocialNetworkApi\SocialNetworkApi.Common\obj\Debug\net6.0\SocialNetworkApi.Common.pdb
+C:\Users\claus\Documents\GitHub\SocialNetworkApi\SocialNetworkApi.Common\obj\Debug\net6.0\ref\SocialNetworkApi.Common.dll

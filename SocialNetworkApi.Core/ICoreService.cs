@@ -4,17 +4,17 @@ namespace SocialNetworkApi.Core;
 
 public interface ICoreService
 {
-    public Task<ApplicationUser?> GetApplicationUserByEmailAsync(string? requestEmail);
+    public Task<Entities.ApplicationUser?> GetApplicationUserByEmailAsync(string? requestEmail);
 
     public Task<bool> IsMailAvailableAsync(string email);
 
-    public Task AddApplicationUser(ApplicationUser entityUser);
+    public Task AddApplicationUser(Common.DTO.POST.Registration.ApplicationUser user);
 
-    public Task<ApplicationUser?> GetApplicationUserAsync(int id);
+    public Task<Core.Entities.ApplicationUser?> GetApplicationUserAsync(int id);
 
     public Task DeleteApplicationUser(ApplicationUser applicationUser);
 
-    public Task UpdateApplicationUser(ApplicationUser applicationUser);
+    public Task UpdateApplicationUser(Entities.ApplicationUser user);
 
-    public Task<IEnumerable<ApplicationUser>> ApplicationUserGetAllAsync(string? gender, string? roleName);
+    public Task<IEnumerable<Common.DTO.GET.GetUsers.ApplicationUser>> ApplicationUserGetAllAsync(string? gender, string? roleName);
 }
