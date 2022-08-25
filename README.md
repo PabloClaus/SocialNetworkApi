@@ -22,10 +22,11 @@ Social network for developers (NET Dev position Test Task)
 
 **Technologies**
 - .NET 6
-- Entity Framework Core 6
+- Entity Framework Core 6.0.8
 - SQL Server Local DB 15.0.4
-- Microsoft.AspNetCore.Authentication.JwtBearer 6.0.5
-- Swashbuckle.AspNetCore 6.2.3
+- Microsoft.AspNetCore.Authentication.JwtBearer 6.0.8
+- Swashbuckle.AspNetCore 6.4.0
+- Autommaper 11
 
 **Requirements**
 
