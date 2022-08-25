@@ -60,7 +60,7 @@ namespace SocialNetworkApi.Core
             }
             catch (DbUpdateConcurrencyException ex)
             {
-                throw new Exception("The user has been previously modified. " + ex);
+                throw new Exception("The same user is currently being modified. " + ex);
             }
         }
 
