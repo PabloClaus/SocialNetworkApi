@@ -1,99 +1,90 @@
-﻿using System.Linq;
-using System.Linq.Expressions;
-using AutoMapper;
+﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using SocialNetworkApi.Core.Data;
 using SocialNetworkApi.Core.Entities;
 
-namespace SocialNetworkApi.Core;
-
-public class CoreService : ICoreService
+namespace SocialNetworkApi.Core
 {
-    private readonly DataContext _context;
-    private readonly IMapper _mapper;
-
-    public CoreService(DataContext context, IMapper mapper)
+    public class CoreService : ICoreService
     {
-        _context = context;
-        _mapper = mapper;
-    }
+        private readonly DataContext _context;
+        private readonly IMapper _mapper;
 
-    #region ICoreService Members
+        public CoreService(DataContext context, IMapper mapper)
+        {
+            _context = context;
+            _mapper = mapper;
+        }
 
-    public async Task<Core.Entities.ApplicationUser?> GetApplicationUserByEmailAsync(string? requestEmail)
-    {
-        return (await _context.ApplicationUser!
-            .SingleOrDefaultAsync(x => x.Email == requestEmail))!;
-    }
+        #region ICoreService Members
 
-    public async Task<bool> IsMailAvailableAsync(string email)
-    {
-        return await _context.ApplicationUser!.AnyAsync(x => x.Email == email);
-    }
+        public async Task<ApplicationUser?> GetApplicationUserByEmailAsync(string? requestEmail)
+        {
+            return (await _context.ApplicationUser!
+                .SingleOrDefaultAsync(x => x.Email == requestEmail))!;
+        }
 
-    public async Task AddApplicationUser(Common.DTO.POST.Registration.ApplicationUser user)
-    {
-        _context.ApplicationUser!.Add(_mapper.Map<Entities.ApplicationUser>(user));
-        await _context.SaveChangesAsync();
-    }
+        public async Task<bool> IsMailAvailableAsync(string email)
+        {
+            return await _context.ApplicationUser!.AnyAsync(x => x.Email == email);
+        }
 
-    public async Task<Core.Entities.ApplicationUser?> GetApplicationUserAsync(int id)
-    {
-        return (await _context.ApplicationUser!
-            .Include(x => x.Role!)
-            .AsSplitQuery()
-            .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.Id == id))!;
-    }
+        public async Task AddApplicationUser(Common.DTO.POST.Registration.ApplicationUser user)
+        {
+            _context.ApplicationUser!.Add(_mapper.Map<ApplicationUser>(user));
+            await _context.SaveChangesAsync();
+        }
 
-    public async Task DeleteApplicationUser(ApplicationUser applicationUser)
-    {
-        _context.ApplicationUser!.Remove(applicationUser);
-        await _context.SaveChangesAsync();
-    }
+        public async Task<ApplicationUser?> GetApplicationUserAsync(int id)
+        {
+            return (await _context.ApplicationUser!
+                .Include(x => x.Role!)
+                .AsSplitQuery()
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == id))!;
+        }
 
-    public async Task UpdateApplicationUser (Core.Entities.ApplicationUser user)
-    {
-        _context.ApplicationUser!.Update(user);
-        await _context.SaveChangesAsync();
-    }
+        public async Task DeleteApplicationUser(ApplicationUser applicationUser)
+        {
+            _context.ApplicationUser!.Remove(applicationUser);
+            await _context.SaveChangesAsync();
+        }
 
-    public async Task<IEnumerable<Common.DTO.GET.GetUsers.ApplicationUser>> ApplicationUserGetAllAsync(string? gender, string? roleName)
-    {
+        public async Task UpdateApplicationUser(ApplicationUser user)
+        {
+            _context.ApplicationUser!.Update(user);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                throw new Exception("The user has been previously modified. " + ex);
+            }
+        }
 
-        if (AreThereFiltersToApply( gender, roleName))
-            return await _context.ApplicationUser!
+        public async Task<IEnumerable<Common.DTO.GET.GetUsers.ApplicationUser>> ApplicationUserGetAllAsync(
+            string? gender, string? roleName)
+        {
+            var user = _context.ApplicationUser!
                 .AsSplitQuery()
                 .Include(x => x.Role!)
                 .AsNoTracking()
-                .ProjectTo<Common.DTO.GET.GetUsers.ApplicationUser>(_mapper.ConfigurationProvider)
-                .Where(GetQueryExpression(gender, roleName))
-                .ToListAsync();
+                .ProjectTo<Common.DTO.GET.GetUsers.ApplicationUser>(_mapper.ConfigurationProvider);
+            if (gender != null)
+            {
+                user = user.Where(x => x.Gender == gender);
+            }
 
-        return await _context.ApplicationUser!
-            .Include(x => x.Role!)
-            .AsSplitQuery()
-            .ProjectTo<Common.DTO.GET.GetUsers.ApplicationUser>(_mapper.ConfigurationProvider)
-            .AsNoTracking()
-            .ToListAsync();
+            if (roleName != null)
+            {
+                user = user.Where(x => x.RoleName == roleName);
+            }
 
-
-        bool AreThereFiltersToApply(string? aGender, string? aRoleName)
-        {
-            return !string.IsNullOrEmpty(aGender) || !string.IsNullOrEmpty(aRoleName);
-        }
-        
-        Expression<Func<Common.DTO.GET.GetUsers.ApplicationUser, bool>> GetQueryExpression(string? aGender, string? aRoleName)
-        {
-            if(string.IsNullOrEmpty(aGender))
-                return x => x.RoleName == aRoleName;
-            if(string.IsNullOrEmpty(aRoleName))
-                return x => x.Gender == aGender;
-            return x => x.RoleName == aRoleName && x.Gender == aGender;
+            return await user.ToListAsync();
         }
 
+        #endregion
     }
-
-    #endregion
 }
